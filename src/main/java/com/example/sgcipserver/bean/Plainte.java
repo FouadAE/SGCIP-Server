@@ -4,169 +4,207 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Plainte {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String ref;
-    private String createdAt;
-    private Date date;
-    private Long numeroDOrdre;
-    private String objet;
-    private Date publie;
-    private Long IdDevision;
-    private Date dateEnvoi;
-    private Long idInstruction;
-    private Long numeroEnvoi;
-    private String observation;
-    private String source;
-    private String type;
-    private String visa;
-    private Long idPlainteDepart;
-    private String expediteur;
-    //idDtype de type Dtype
-    //idDossier
-    // idStatus
-    //idClasse
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String ref;
+	private String createdAt;
+	private String datePlainte;
+	private Long numeroDOrdre;
+	private String objet;
+	private String publie;
+	private String dateEnvoi;
+	private Long numeroEnvoi;
+	private String observation;
+	private String source;
+	private String type;
+	private String visa;
+	private String expediteur;
+	@ManyToOne
+	private Division division;
+	@ManyToOne
+	private Instruction instruction;
+	@ManyToOne
+	private PlainteDepart plainteDepart;
+	@ManyToOne
+	private Theme theme;
+	@ManyToOne
+	private Dossier dossier;
+	@ManyToOne
+	private Status status;
+	@ManyToOne
+	private RClasss pClasse;
 
+	public Long getId() {
+		return id;
+	}
 
-    public String getExpediteur() {
-        return expediteur;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setExpediteur(String expediteur) {
-        this.expediteur = expediteur;
-    }
+	public String getRef() {
+		return ref;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setRef(String ref) {
+		this.ref = ref;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getCreatedAt() {
+		return createdAt;
+	}
 
-    public String getRef() {
-        return ref;
-    }
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
 
-    public void setRef(String ref) {
-        this.ref = ref;
-    }
+	public String getDatePlainte() {
+		return datePlainte;
+	}
 
-    public String getCreatedAt() {
-        return createdAt;
-    }
+	public void setDatePlainte(String datePlainte) {
+		this.datePlainte = datePlainte;
+	}
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
+	public Long getNumeroDOrdre() {
+		return numeroDOrdre;
+	}
 
-    public Date getDate() {
-        return date;
-    }
+	public void setNumeroDOrdre(Long numeroDOrdre) {
+		this.numeroDOrdre = numeroDOrdre;
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	public String getObjet() {
+		return objet;
+	}
 
-    public Long getNumeroDOrdre() {
-        return numeroDOrdre;
-    }
+	public void setObjet(String objet) {
+		this.objet = objet;
+	}
 
-    public void setNumeroDOrdre(Long numeroDOrdre) {
-        this.numeroDOrdre = numeroDOrdre;
-    }
+	public String getPublie() {
+		return publie;
+	}
 
-    public String getObjet() {
-        return objet;
-    }
+	public void setPublie(String publie) {
+		this.publie = publie;
+	}
 
-    public void setObjet(String objet) {
-        this.objet = objet;
-    }
+	public String getDateEnvoi() {
+		return dateEnvoi;
+	}
 
-    public Date getPublie() {
-        return publie;
-    }
+	public void setDateEnvoi(String dateEnvoi) {
+		this.dateEnvoi = dateEnvoi;
+	}
 
-    public void setPublie(Date publie) {
-        this.publie = publie;
-    }
+	public Long getNumeroEnvoi() {
+		return numeroEnvoi;
+	}
 
-    public Long getIdDevision() {
-        return IdDevision;
-    }
+	public void setNumeroEnvoi(Long numeroEnvoi) {
+		this.numeroEnvoi = numeroEnvoi;
+	}
 
-    public void setIdDevision(Long idDevision) {
-        IdDevision = idDevision;
-    }
+	public String getObservation() {
+		return observation;
+	}
 
-    public Date getDateEnvoi() {
-        return dateEnvoi;
-    }
+	public void setObservation(String observation) {
+		this.observation = observation;
+	}
 
-    public void setDateEnvoi(Date dateEnvoi) {
-        this.dateEnvoi = dateEnvoi;
-    }
+	public String getSource() {
+		return source;
+	}
 
-    public Long getIdInstruction() {
-        return idInstruction;
-    }
+	public void setSource(String source) {
+		this.source = source;
+	}
 
-    public void setIdInstruction(Long idInstruction) {
-        this.idInstruction = idInstruction;
-    }
+	public String getType() {
+		return type;
+	}
 
-    public Long getNumeroEnvoi() {
-        return numeroEnvoi;
-    }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    public void setNumeroEnvoi(Long numeroEnvoi) {
-        this.numeroEnvoi = numeroEnvoi;
-    }
+	public String getVisa() {
+		return visa;
+	}
 
-    public String getObservation() {
-        return observation;
-    }
+	public void setVisa(String visa) {
+		this.visa = visa;
+	}
 
-    public void setObservation(String observation) {
-        this.observation = observation;
-    }
+	public String getExpediteur() {
+		return expediteur;
+	}
 
-    public String getSource() {
-        return source;
-    }
+	public void setExpediteur(String expediteur) {
+		this.expediteur = expediteur;
+	}
 
-    public void setSource(String source) {
-        this.source = source;
-    }
+	public Division getDivision() {
+		return division;
+	}
 
+	public void setDivision(Division division) {
+		this.division = division;
+	}
 
-    public String getType() {
-        return type;
-    }
+	public Instruction getInstruction() {
+		return instruction;
+	}
 
-    public void setType(String type) {
-        this.type = type;
-    }
+	public void setInstruction(Instruction instruction) {
+		this.instruction = instruction;
+	}
 
-    public String getVisa() {
-        return visa;
-    }
+	public PlainteDepart getPlainteDepart() {
+		return plainteDepart;
+	}
 
-    public void setVisa(String visa) {
-        this.visa = visa;
-    }
+	public void setPlainteDepart(PlainteDepart plainteDepart) {
+		this.plainteDepart = plainteDepart;
+	}
 
-    public Long getIdPlainteDepart() {
-        return idPlainteDepart;
-    }
+	public Theme getTheme() {
+		return theme;
+	}
 
-    public void setIdPlainteDepart(Long idPlainteDepart) {
-        this.idPlainteDepart = idPlainteDepart;
-    }
+	public void setTheme(Theme theme) {
+		this.theme = theme;
+	}
+
+	public Dossier getDossier() {
+		return dossier;
+	}
+
+	public void setDossier(Dossier dossier) {
+		this.dossier = dossier;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public RClasss getpClasse() {
+		return pClasse;
+	}
+
+	public void setpClasse(RClasss pClasse) {
+		this.pClasse = pClasse;
+	}
+
 }
