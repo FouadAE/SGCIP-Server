@@ -1,10 +1,16 @@
 package com.example.sgcipserver.bean;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Plainte {
@@ -12,12 +18,18 @@ public class Plainte {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String ref;
-	private String createdAt;
-	private String datePlainte;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "Africa/Casablanca")
+	private Date createdAt;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "Africa/Casablanca")
+	private Date datePlainte;
 	private Long numeroDOrdre;
 	private String objet;
 	private String publie;
-	private String dateEnvoi;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "Africa/Casablanca")
+	private Date dateEnvoi;
 	private Long numeroEnvoi;
 	private String observation;
 	private String source;
@@ -55,19 +67,19 @@ public class Plainte {
 		this.ref = ref;
 	}
 
-	public String getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public String getDatePlainte() {
+	public Date getDatePlainte() {
 		return datePlainte;
 	}
 
-	public void setDatePlainte(String datePlainte) {
+	public void setDatePlainte(Date datePlainte) {
 		this.datePlainte = datePlainte;
 	}
 
@@ -95,11 +107,11 @@ public class Plainte {
 		this.publie = publie;
 	}
 
-	public String getDateEnvoi() {
+	public Date getDateEnvoi() {
 		return dateEnvoi;
 	}
 
-	public void setDateEnvoi(String dateEnvoi) {
+	public void setDateEnvoi(Date dateEnvoi) {
 		this.dateEnvoi = dateEnvoi;
 	}
 

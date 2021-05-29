@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -29,6 +31,18 @@ public class PlainteService {
 
 	public List<Plainte> findAll() {
 		return plainteDao.findAll();
+	}
+
+	public List<Plainte> findByDivisionRef(String ref) {
+		return plainteDao.findByDivisionRef(ref);
+	}
+
+	public List<Plainte> findAllByCreatedAtBetween(Date startDate, Date endDate) {
+		return plainteDao.findAllByCreatedAtBetween(startDate, endDate);
+	}
+
+	public List<Plainte> findByThemeRef(String ref) {
+		return plainteDao.findByThemeRef(ref);
 	}
 
 	public int save(Plainte plainte) {

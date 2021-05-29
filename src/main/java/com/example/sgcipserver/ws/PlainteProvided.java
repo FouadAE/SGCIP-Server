@@ -3,8 +3,10 @@ package com.example.sgcipserver.ws;
 import com.example.sgcipserver.bean.Plainte;
 import com.example.sgcipserver.service.PlainteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -29,6 +31,23 @@ public class PlainteProvided {
 	@PostMapping("/")
 	public int save(@RequestBody Plainte plainte) {
 		return plainteService.save(plainte);
+	}
+
+	@GetMapping("/division/ref/{ref}")
+	public List<Plainte> findByDivisionRef(@PathVariable String ref) {
+		return plainteService.findByDivisionRef(ref);
+	}
+
+	@GetMapping("/createdatbetween")
+	public List<Plainte> findAllByCreatedAtBetween(
+			@RequestParam("startdate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+		return plainteService.findAllByCreatedAtBetween(startDate, endDate);
+	}
+
+	@GetMapping("/theme/ref/{ref}")
+	public List<Plainte> findByThemeRef(String ref) {
+		return plainteService.findByThemeRef(ref);
 	}
 
 	@Autowired
