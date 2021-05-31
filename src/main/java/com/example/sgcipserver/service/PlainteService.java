@@ -50,19 +50,27 @@ public class PlainteService {
 		Instruction instruction = instructionService.findByRef(plainte.getInstruction().getRef());
 		PlainteDepart plainteDepart = plainteDepartService.findByRef(plainte.getPlainteDepart().getRef());
 		Theme theme = themeService.findByRef(plainte.getTheme().getRef());
-		Dossier dossier = dossierService.findByRef(plainte.getDossier().getNom());
+		Dossier dossier = dossierService.findByRef(plainte.getDossier().getRef());
 		Status status = statusService.findByStatusName(plainte.getStatus().getStatusName());
 		RClasss pClasse = rClasssService.findByRef(plainte.getpClasse().getRef());
 		plainte.setDivision(division);
-		plainte.setDossier(dossier);
 		plainte.setPlainteDepart(plainteDepart);
 		plainte.setTheme(theme);
 		plainte.setStatus(status);
 		plainte.setpClasse(pClasse);
 		plainte.setInstruction(instruction);
+		if (dossier == null) {
+			Dossier newDossier = new Dossier();
+			newDossier.setRef(plainte.getDossier().getRef());
+			dossierService.save(newDossier);
+			plainte.setDossier(newDossier);
+		} else {
+			plainte.setDossier(dossier);
+		}
 		if (findByRef(plainte.getRef()) != null) {
 			return -1;
-		} else if (division == null) {
+		} else if (division == null && plainteDepart == null && theme == null && status == null && pClasse == null
+				&& instruction == null) {
 			return -2;
 		} else {
 			plainteDao.save(plainte);
