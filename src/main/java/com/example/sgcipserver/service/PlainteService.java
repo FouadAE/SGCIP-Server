@@ -9,9 +9,12 @@ import com.example.sgcipserver.bean.RClasss;
 import com.example.sgcipserver.bean.Status;
 import com.example.sgcipserver.bean.Theme;
 import com.example.sgcipserver.dao.PlainteDao;
+import com.example.sgcipserver.vo.PlainteVo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import java.util.Date;
@@ -78,6 +81,18 @@ public class PlainteService {
 		}
 	}
 
+	public List<Plainte> findByCritere(PlainteVo plainteVo) {
+		String query = "SELECT p FROM Plainte p where 1=1";
+		if (plainteVo.getNumeroDOrdre() != null && !plainteVo.getNumeroDOrdre().isEmpty())
+			query += "AND p.numeroDOrdre ='" + plainteVo.getNumeroDOrdre() + "'";
+		if (plainteVo.getStatus() != null && !plainteVo.getStatus().isEmpty())
+			query += "AND p.status.statusName ='" + plainteVo.getStatus() + "'";
+		if (plainteVo.getType() != null && !plainteVo.getType().isEmpty())
+			query += "AND p.type ='" + plainteVo.getType() + "'";
+
+		return entityManager.createQuery(query).getResultList();
+	}
+
 	@Autowired
 	PlainteDao plainteDao;
 	@Autowired
@@ -94,4 +109,6 @@ public class PlainteService {
 	StatusService statusService;
 	@Autowired
 	RClasssService rClasssService;
+	@Autowired
+	EntityManager entityManager;
 }
