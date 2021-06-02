@@ -47,6 +47,9 @@ public class PlainteService {
 	public List<Plainte> findByThemeRef(String ref) {
 		return plainteDao.findByThemeRef(ref);
 	}
+	public List<Plainte> findByStatusStatusName(String statusName) {
+		return plainteDao.findByStatusStatusName(statusName);
+	}
 
 	public int save(Plainte plainte) {
 		Division division = divisionService.findByRef(plainte.getDivision().getRef());

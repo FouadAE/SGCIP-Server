@@ -16,6 +16,9 @@ public interface PlainteDao extends JpaRepository<Plainte, Long> {
 
 	List<Plainte> findByThemeRef(String ref);
 
+	List<Plainte> findByStatusStatusName(String statusName);
+
+
 	List<Plainte> findAllByCreatedAtBetween(Date startDate, Date endDate);
 
 	int deleteByRef(String ref);

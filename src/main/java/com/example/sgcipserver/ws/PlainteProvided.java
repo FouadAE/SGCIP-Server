@@ -15,49 +15,54 @@ import java.util.List;
 @RequestMapping("sgcip/plainte")
 public class PlainteProvided {
 
-	@GetMapping("/ref/{ref}")
-	public Plainte findByRef(@PathVariable String ref) {
-		return plainteService.findByRef(ref);
-	}
+    @GetMapping("/ref/{ref}")
+    public Plainte findByRef(@PathVariable String ref) {
+        return plainteService.findByRef(ref);
+    }
 
-	@DeleteMapping("/ref/{ref}")
-	public int deleteByRef(@PathVariable String ref) {
-		return plainteService.deleteByRef(ref);
-	}
+    @DeleteMapping("/ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
+        return plainteService.deleteByRef(ref);
+    }
 
-	@GetMapping("/")
-	public List<Plainte> findAll() {
-		return plainteService.findAll();
-	}
+    @GetMapping("/")
+    public List<Plainte> findAll() {
+        return plainteService.findAll();
+    }
 
-	@PostMapping("/")
-	public int save(@RequestBody Plainte plainte) {
-		return plainteService.save(plainte);
-	}
+    @PostMapping("/")
+    public int save(@RequestBody Plainte plainte) {
+        return plainteService.save(plainte);
+    }
 
-	@GetMapping("/division/ref/{ref}")
-	public List<Plainte> findByDivisionRef(@PathVariable String ref) {
-		return plainteService.findByDivisionRef(ref);
-	}
+    @GetMapping("/division/ref/{ref}")
+    public List<Plainte> findByDivisionRef(@PathVariable String ref) {
+        return plainteService.findByDivisionRef(ref);
+    }
 
-	@GetMapping("/createdatbetween")
-	public List<Plainte> findAllByCreatedAtBetween(
-			@RequestParam("startdate") @DateTimeFormat(pattern = "yyyy/MM/dd") Date startDate,
-			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy/MM/dd") Date endDate) {
-		return plainteService.findAllByCreatedAtBetween(startDate, endDate);
-	}
+    @GetMapping("/createdatbetween")
+    public List<Plainte> findAllByCreatedAtBetween(
+            @RequestParam("startdate") @DateTimeFormat(pattern = "yyyy/MM/dd") Date startDate,
+            @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy/MM/dd") Date endDate) {
+        return plainteService.findAllByCreatedAtBetween(startDate, endDate);
+    }
 
-	@GetMapping("/theme/ref/{ref}")
-	public List<Plainte> findByThemeRef(String ref) {
-		return plainteService.findByThemeRef(ref);
-	}
+    @GetMapping("/theme/ref/{ref}")
+    public List<Plainte> findByThemeRef(String ref) {
+        return plainteService.findByThemeRef(ref);
+    }
 
-	@PostMapping("/critere")
-	public List<Plainte> findByCritere(@RequestBody PlainteVo plainteVo) {
-		return plainteService.findByCritere(plainteVo);
-	}
+    @PostMapping("/critere")
+    public List<Plainte> findByCritere(@RequestBody PlainteVo plainteVo) {
+        return plainteService.findByCritere(plainteVo);
+    }
 
-	@Autowired
-	PlainteService plainteService;
+    @GetMapping("/status/statusName/{statusName}")
+    public List<Plainte> findByStatusStatusName(@PathVariable String statusName) {
+        return plainteService.findByStatusStatusName(statusName);
+    }
+
+    @Autowired
+    PlainteService plainteService;
 
 }
