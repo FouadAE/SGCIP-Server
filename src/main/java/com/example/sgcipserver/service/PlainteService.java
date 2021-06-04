@@ -92,6 +92,10 @@ public class PlainteService {
 			query += "AND p.status.statusName ='" + plainteVo.getStatus() + "'";
 		if (plainteVo.getType() != null && !plainteVo.getType().isEmpty())
 			query += "AND p.type ='" + plainteVo.getType() + "'";
+		if (plainteVo.getEndDate() != null && !plainteVo.getEndDate().isEmpty())
+			query += "AND p.createdAt <='" + plainteVo.getEndDate() + "'";
+		if (plainteVo.getStartDate() != null && !plainteVo.getStartDate().isEmpty())
+			query += "AND p.createdAt >='" + plainteVo.getStartDate() + "'";
 
 		return entityManager.createQuery(query).getResultList();
 	}
