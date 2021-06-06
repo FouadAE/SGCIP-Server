@@ -62,6 +62,14 @@ public class PlainteProvided {
         return plainteService.findByStatusStatusName(statusName);
     }
 
+    @GetMapping("/numeroDOrdre/{numeroDOrdre}")
+    public Plainte findByNumeroDOrdre(@PathVariable Long numeroDOrdre) {
+        return plainteService.findByNumeroDOrdre(numeroDOrdre);
+    }
+    @GetMapping("/type/{type}")
+    public List<Plainte> findByType(@PathVariable String type) {
+        return plainteService.findByType(type);
+    }
     @Autowired
     PlainteService plainteService;
 

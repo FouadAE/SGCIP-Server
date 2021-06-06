@@ -49,6 +49,15 @@ public class PlainteService {
 	}
 	public List<Plainte> findByStatusStatusName(String statusName) {
 		return plainteDao.findByStatusStatusName(statusName);
+
+	}
+
+	public Plainte findByNumeroDOrdre(Long numeroDOrdre) {
+		return plainteDao.findByNumeroDOrdre(numeroDOrdre);
+	}
+
+	public List<Plainte> findByType(String type) {
+		return plainteDao.findByType(type);
 	}
 
 	public int save(Plainte plainte) {

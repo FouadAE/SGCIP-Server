@@ -18,6 +18,10 @@ public interface PlainteDao extends JpaRepository<Plainte, Long> {
 
 	List<Plainte> findByStatusStatusName(String statusName);
 
+	Plainte findByNumeroDOrdre(Long numeroDOrdre);
+
+	List<Plainte> findByType(String type);
+
 
 	List<Plainte> findAllByCreatedAtBetween(Date startDate, Date endDate);
 
