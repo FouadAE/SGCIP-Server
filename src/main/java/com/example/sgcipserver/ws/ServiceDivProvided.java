@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sgcip/ServiceDiv")
+@RequestMapping("/api/sgcip/ServiceDiv")
 public class ServiceDivProvided {
     @GetMapping("/ref/{ref}")
     public ServiceDiv findByRef(@PathVariable String ref) {

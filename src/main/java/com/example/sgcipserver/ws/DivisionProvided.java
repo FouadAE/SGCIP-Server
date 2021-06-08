@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sgcip/division")
+@RequestMapping("/api/sgcip/division")
 public class DivisionProvided {
 	@GetMapping("/ref/{ref}")
 	public Division findByRef(@PathVariable String ref) {

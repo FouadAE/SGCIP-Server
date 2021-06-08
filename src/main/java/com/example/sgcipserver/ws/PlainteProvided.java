@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("sgcip/plainte")
+@RequestMapping("/api/sgcip/plainte")
 public class PlainteProvided {
 
     @GetMapping("/ref/{ref}")

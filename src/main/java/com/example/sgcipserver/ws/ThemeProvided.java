@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("sgcip/theme")
+@RequestMapping("/api/sgcip/theme")
 public class ThemeProvided {
 	@GetMapping("/ref/{ref}")
 	public Theme findByRef(@PathVariable String ref) {

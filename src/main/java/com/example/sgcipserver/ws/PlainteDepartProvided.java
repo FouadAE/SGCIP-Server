@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sgcip/plainteDepart")
+@RequestMapping("/api/sgcip/plainteDepart")
 public class PlainteDepartProvided {
     @GetMapping("/ref/{ref}")
     public PlainteDepart findByRef(@PathVariable String ref) {

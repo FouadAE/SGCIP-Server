@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sgcip/plainteTrace")
+@RequestMapping("/api/sgcip/plainteTrace")
 public class PlainteTraceProvided {
 	@GetMapping("/ref/{ref}")
 	public PlainteTrace findByRef(@PathVariable String ref) {

@@ -15,7 +15,7 @@ import com.example.sgcipserver.bean.Dossier;
 import com.example.sgcipserver.service.DossierService;
 
 @RestController
-@RequestMapping("/sgcip/dossier")
+@RequestMapping("/api/sgcip/dossier")
 public class DossierProvided {
 
 	@Autowired

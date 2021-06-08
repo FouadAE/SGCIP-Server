@@ -47,6 +47,7 @@ public class PlainteService {
 	public List<Plainte> findByThemeRef(String ref) {
 		return plainteDao.findByThemeRef(ref);
 	}
+
 	public List<Plainte> findByStatusStatusName(String statusName) {
 		return plainteDao.findByStatusStatusName(statusName);
 
@@ -82,7 +83,7 @@ public class PlainteService {
 		} else {
 			plainte.setDossier(dossier);
 		}
-		if (findByRef(plainte.getRef()) != null) {
+		if (findByNumeroDOrdre(plainte.getNumeroDOrdre()) != null) {
 			return -1;
 		} else if (division == null && plainteDepart == null && theme == null && status == null && pClasse == null
 				&& instruction == null) {
@@ -102,9 +103,9 @@ public class PlainteService {
 		if (plainteVo.getType() != null && !plainteVo.getType().isEmpty())
 			query += "AND p.type ='" + plainteVo.getType() + "'";
 		if (plainteVo.getEndDate() != null && !plainteVo.getEndDate().isEmpty())
-			query += "AND p.createdAt <='" + plainteVo.getEndDate() + "'";
+			query += "AND p.datePlainte <='" + plainteVo.getEndDate() + "'";
 		if (plainteVo.getStartDate() != null && !plainteVo.getStartDate().isEmpty())
-			query += "AND p.createdAt >='" + plainteVo.getStartDate() + "'";
+			query += "AND p.datePlainte >='" + plainteVo.getStartDate() + "'";
 
 		return entityManager.createQuery(query).getResultList();
 	}

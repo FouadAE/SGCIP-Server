@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sgcip/class")
+@RequestMapping("/api/sgcip/class")
 public class RClasssProvided {
     @GetMapping("/ref/{ref}")
     public RClasss findByRef(@PathVariable String ref) {

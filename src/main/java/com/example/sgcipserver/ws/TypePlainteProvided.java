@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sgcip/typePlainte")
+@RequestMapping("/api/sgcip/typePlainte")
 public class TypePlainteProvided {
 
 	@GetMapping("/ref/{ref}")

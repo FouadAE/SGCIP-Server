@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sgcip/instruction")
+@RequestMapping("/api/sgcip/instruction")
 public class IntructionProvided {
 	@GetMapping("/ref/{ref}")
 	public Instruction findByRef(@PathVariable String ref) {

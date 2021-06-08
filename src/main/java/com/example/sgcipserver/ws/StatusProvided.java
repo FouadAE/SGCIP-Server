@@ -15,7 +15,7 @@ import com.example.sgcipserver.bean.Status;
 import com.example.sgcipserver.service.StatusService;
 
 @RestController
-@RequestMapping("/sgcip/status")
+@RequestMapping("/api/sgcip/status")
 public class StatusProvided {
 
 	@Autowired
