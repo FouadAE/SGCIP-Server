@@ -42,8 +42,8 @@ public class PlainteProvided {
 
     @GetMapping("/createdatbetween")
     public List<Plainte> findAllByCreatedAtBetween(
-            @RequestParam("startdate") @DateTimeFormat(pattern = "yyyy/MM/dd") Date startDate,
-            @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy/MM/dd") Date endDate) {
+            @RequestParam("startdate") @DateTimeFormat(pattern = "dd-MM-yyyy") Date startDate,
+            @RequestParam("endDate") @DateTimeFormat(pattern = "dd-MM-yyyy") Date endDate) {
         return plainteService.findAllByCreatedAtBetween(startDate, endDate);
     }
 

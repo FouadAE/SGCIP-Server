@@ -19,16 +19,16 @@ public class Plainte {
 	private Long id;
 	private String ref;
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "Africa/Casablanca")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Africa/Casablanca")
 	private Date createdAt;
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "Africa/Casablanca")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Africa/Casablanca")
 	private Date datePlainte;
 	private Long numeroDOrdre;
 	private String objet;
 	private String publie;
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "Africa/Casablanca")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Africa/Casablanca")
 	private Date dateEnvoi;
 	private Long numeroEnvoi;
 	private String observation;
@@ -219,4 +219,30 @@ public class Plainte {
 		this.pClasse = pClasse;
 	}
 
+	@Override
+	public String toString() {
+		return "Plainte{" +
+				"id=" + id +
+				", ref='" + ref + '\'' +
+				", createdAt=" + createdAt +
+				", datePlainte=" + datePlainte +
+				", numeroDOrdre=" + numeroDOrdre +
+				", objet='" + objet + '\'' +
+				", publie='" + publie + '\'' +
+				", dateEnvoi=" + dateEnvoi +
+				", numeroEnvoi=" + numeroEnvoi +
+				", observation='" + observation + '\'' +
+				", source='" + source + '\'' +
+				", type='" + type + '\'' +
+				", visa='" + visa + '\'' +
+				", expediteur='" + expediteur + '\'' +
+				", division=" + division +
+				", instruction=" + instruction +
+				", plainteDepart=" + plainteDepart +
+				", theme=" + theme +
+				", dossier=" + dossier +
+				", status=" + status +
+				", pClasse=" + pClasse +
+				'}';
+	}
 }

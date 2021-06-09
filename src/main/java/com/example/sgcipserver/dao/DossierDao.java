@@ -8,7 +8,7 @@ import com.example.sgcipserver.bean.Dossier;
 @Repository
 public interface DossierDao extends JpaRepository<Dossier, Long> {
 
-	Dossier findByRef(String ref);
+	Dossier findByNom(String nom);
 
-	int deleteByRef(String ref);
+	int deleteByNom(String nom);
 }

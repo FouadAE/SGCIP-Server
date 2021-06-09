@@ -61,12 +61,13 @@ public class PlainteService {
 		return plainteDao.findByType(type);
 	}
 
+
 	public int save(Plainte plainte) {
 		Division division = divisionService.findByRef(plainte.getDivision().getRef());
 		Instruction instruction = instructionService.findByRef(plainte.getInstruction().getRef());
 		PlainteDepart plainteDepart = plainteDepartService.findByRef(plainte.getPlainteDepart().getRef());
 		Theme theme = themeService.findByRef(plainte.getTheme().getRef());
-		Dossier dossier = dossierService.findByRef(plainte.getDossier().getRef());
+		Dossier dossier = dossierService.findByNom(plainte.getDossier().getNom());
 		Status status = statusService.findByStatusName(plainte.getStatus().getStatusName());
 		RClasss pClasse = rClasssService.findByRef(plainte.getpClasse().getRef());
 		plainte.setDivision(division);
@@ -75,9 +76,10 @@ public class PlainteService {
 		plainte.setStatus(status);
 		plainte.setpClasse(pClasse);
 		plainte.setInstruction(instruction);
+		System.out.println(plainte);
 		if (dossier == null) {
 			Dossier newDossier = new Dossier();
-			newDossier.setRef(plainte.getDossier().getRef());
+			newDossier.setNom(plainte.getDossier().getNom());
 			dossierService.save(newDossier);
 			plainte.setDossier(newDossier);
 		} else {

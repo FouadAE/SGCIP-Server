@@ -22,8 +22,8 @@ public class DossierProvided {
 	DossierService dossierService;
 
 	@GetMapping("/ref/{ref}")
-	public Dossier findByRef(@PathVariable String ref) {
-		return dossierService.findByRef(ref);
+	public Dossier findByNom(@PathVariable String nom) {
+		return dossierService.findByNom(nom);
 	}
 
 	@GetMapping("/")
@@ -32,8 +32,8 @@ public class DossierProvided {
 	}
 
 	@DeleteMapping("/ref/{ref}")
-	public int deleteByRef(@PathVariable String ref) {
-		return dossierService.deleteByRef(ref);
+	public int deleteByNom(@PathVariable String nom) {
+		return dossierService.deleteByNom(nom);
 	}
 
 	@PostMapping("/")

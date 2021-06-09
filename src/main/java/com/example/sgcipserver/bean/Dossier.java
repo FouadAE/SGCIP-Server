@@ -10,7 +10,7 @@ public class Dossier {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	String ref;
+	String nom;
 
 	public Long getId() {
 		return id;
@@ -20,12 +20,11 @@ public class Dossier {
 		this.id = id;
 	}
 
-	public String getRef() {
-		return ref;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setRef(String ref) {
-		this.ref = ref;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
-
 }

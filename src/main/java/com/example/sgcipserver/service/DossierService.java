@@ -15,22 +15,23 @@ public class DossierService {
 	@Autowired
 	DossierDao dossierDao;
 
-	public Dossier findByRef(String ref) {
-		return dossierDao.findByRef(ref);
-	}
 
 	public List<Dossier> findAll() {
 		return dossierDao.findAll();
 	}
 
-	@Transactional
-	public int deleteByRef(String ref) {
-		return dossierDao.deleteByRef(ref);
+	public Dossier findByNom(String nom) {
+		return dossierDao.findByNom(nom);
 	}
+	@Transactional
+	public int deleteByNom(String nom) {
+		return dossierDao.deleteByNom(nom);
+	}
+
 
 	public int save(Dossier dossier) {
 
-		if (findByRef(dossier.getRef()) != null) {
+		if (findByNom(dossier.getNom()) != null) {
 			return -1;
 		} else {
 			dossierDao.save(dossier);
