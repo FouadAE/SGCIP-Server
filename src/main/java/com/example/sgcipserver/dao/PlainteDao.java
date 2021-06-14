@@ -10,21 +10,22 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PlainteDao extends JpaRepository<Plainte, Long> {
-	Plainte findByRef(String ref);
-	
-	List<Plainte> findByDivisionRef(String ref);
+    Plainte findByRef(String ref);
 
-	List<Plainte> findByThemeRef(String ref);
+    List<Plainte> findByDivisionRef(String ref);
 
-	List<Plainte> findByStatusStatusName(String statusName);
+    List<Plainte> findByThemeRef(String ref);
 
-	Plainte findByNumeroDOrdre(Long numeroDOrdre);
+    List<Plainte> findByStatusStatusName(String statusName);
 
-	List<Plainte> findByType(String type);
+    Plainte findByNumeroDOrdre(Long numeroDOrdre);
+
+    List<Plainte> findByType(String type);
 
 
-	List<Plainte> findAllByCreatedAtBetween(Date startDate, Date endDate);
+    List<Plainte> findAllByCreatedAtBetween(Date startDate, Date endDate);
 
-	int deleteByRef(String ref);
+    int deleteByNumeroDOrdre(long numeroDOrdre);
+
 
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -20,10 +21,11 @@ public class PlainteProvided {
         return plainteService.findByRef(ref);
     }
 
-    @DeleteMapping("/ref/{ref}")
-    public int deleteByRef(@PathVariable String ref) {
-        return plainteService.deleteByRef(ref);
+    @DeleteMapping("/numeroDOrdre/{numeroDOrdre}")
+    public int deleteByNumeroDOrdre(@PathVariable long numeroDOrdre) {
+        return plainteService.deleteByNumeroDOrdre(numeroDOrdre);
     }
+
 
     @GetMapping("/")
     public List<Plainte> findAll() {
@@ -66,10 +68,17 @@ public class PlainteProvided {
     public Plainte findByNumeroDOrdre(@PathVariable Long numeroDOrdre) {
         return plainteService.findByNumeroDOrdre(numeroDOrdre);
     }
+
     @GetMapping("/type/{type}")
     public List<Plainte> findByType(@PathVariable String type) {
         return plainteService.findByType(type);
     }
+
+    @PutMapping("/")
+    public int modifyPlainte(@RequestBody Plainte plainte) {
+        return plainteService.modifyPlainte(plainte);
+    }
+
     @Autowired
     PlainteService plainteService;
 
