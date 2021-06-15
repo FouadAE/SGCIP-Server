@@ -36,6 +36,7 @@ public class Plainte {
 	private String type;
 	private String visa;
 	private String expediteur;
+	private String reponse;
 	@ManyToOne
 	private Division division;
 	@ManyToOne
@@ -57,6 +58,14 @@ public class Plainte {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getReponse(){
+		return reponse;
+	}
+	
+	public void setReponse(String reponse){
+		this.reponse = reponse;
 	}
 
 	public String getRef() {
